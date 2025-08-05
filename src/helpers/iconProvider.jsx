@@ -1,10 +1,12 @@
 import { BsSmartwatch, BsThreeDotsVertical } from "react-icons/bs";
 import {
+  FaAngleRight,
   FaCarSide,
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaRegHeart,
+  FaRegUser,
   FaStar,
   FaStarHalfAlt,
   FaTwitter,
@@ -15,6 +17,7 @@ import {
   IoEyeOffOutline,
   IoSearchOutline,
 } from "react-icons/io5";
+import { LiaAngleRightSolid } from "react-icons/lia";
 import { LuGamepad, LuShieldCheck } from "react-icons/lu";
 import { MdOutlineCameraAlt, MdOutlineRemoveRedEye } from "react-icons/md";
 import { PiHeadphonesDuotone } from "react-icons/pi";
@@ -47,4 +50,6 @@ export const icons = {
   send: <VscSend />,
   customerSupport: <TfiHeadphoneAlt />,
   threeDot: <BsThreeDotsVertical />,
+  user: <FaRegUser />,
+  rArrow: <LiaAngleRightSolid />,
 };

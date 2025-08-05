@@ -5,17 +5,24 @@ const Timer = () => {
   const [time, setTime] = useState(5 * 24 * 60 * 60 * 1000);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime((prev) => {
-        if (prev <= 1000) {
-          clearInterval(interval);
-          return 0;
-        }
-        return prev - 1;
-      });
-      return () => clearInterval(interval);
-    });
+    const worker = new Worker(
+      new URL("../../CountDownWorker.js", import.meta.url)
+    );
+    worker.postMessage("kaj seh");
   }, []);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setTime((prev) => {
+  //       if (prev <= 1000) {
+  //         clearInterval(interval);
+  //         return 0;
+  //       }
+  //       return prev - 1;
+  //     });
+  //     return () => clearInterval(interval);
+  //   });
+  // }, []);
 
   const formatDate = (miliSecond) => {
     let totalSeconds = parseInt(Math.floor(miliSecond / 1000));
@@ -55,10 +62,12 @@ const Timer = () => {
     <div className="flex gap-x-2">
       {offerTime?.map((item, index) => (
         <div key={item.id} className="flex flex-col">
-          <span className="text-xs font-medium">{item.name}</span>
+          <span className="text-xs font-medium">
+            {item?.name ? item.name : "Timer"}
+          </span>
           <div className="flex items-center gap-x-2">
             <span className="font-inter font-bold text-[32px]">
-              {item.date}
+              {item?.date ? item.date : "00"}
             </span>
             {offerTime.length - 1 != index && (
               <span className="text-red-db4444 text-base!">

@@ -61,3 +61,113 @@ span {
   max-width: 1200px;
   margin: auto;
 }
+.menuUnderLine {
+  position: relative;
+}
+.menuUnderLine::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-black-7d8184);
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transition: all linear 0.2s;
+  -webkit-transition: all linear 0.2s;
+  -moz-transition: all linear 0.2s;
+  -ms-transition: all linear 0.2s;
+  -o-transition: all linear 0.2s;
+}
+.menuUnderLine:hover::after {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+
+.amount {
+  position: relative;
+}
+.amount::after {
+  position: absolute;
+  content: "0";
+  left: 39%;
+  top: -52%;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background-color: var(--red-db4444);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  text-align: center;
+  color: var(--white-ffffff);
+  font-size: 14px;
+}
+
+/* dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #f5f5f5;
+}
+
+.menu-item:hover {
+  background-color: #f5f5f5;
+  color: #000000;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.icon {
+  font-size: 1.75rem;
+}
+
+.label {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+/* swiper slider */
+.swiper-pagination-bullet-active {
+  background: var(--red-db4444) !important;
+  border: 2px solid white;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+  background: #ffffff;
+  width: 12px !important;
+  height: 12px !important;
+}
+/* swiper slider */
