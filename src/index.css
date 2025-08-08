@@ -165,9 +165,10 @@ span {
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets
   .swiper-pagination-bullet {
-  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+  /* margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px); */
   background: #ffffff;
   width: 12px !important;
   height: 12px !important;
+  /* background-image: url(../public/banner-2.png); */
 }
 /* swiper slider */

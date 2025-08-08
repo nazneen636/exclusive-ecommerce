@@ -1,35 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { icons } from "../../helpers/iconProvider";
 
-const Timer = () => {
-  const [time, setTime] = useState(5 * 24 * 60 * 60 * 1000);
+const Timer = ({ timeOfOffer }) => {
+  const [time, setTime] = useState(timeOfOffer * 24 * 60 * 60 * 1000 || 0);
 
   useEffect(() => {
     const worker = new Worker(
-      new URL("../../CountDownWorker.js", import.meta.url)
+      new URL("../../../CountDownWorker.js", import.meta.url)
     );
-    worker.postMessage("kaj seh");
+    worker.postMessage(time);
+    worker.onmessage = (e) => {
+      setTime(e.data);
+    };
+    return () => {
+      worker.terminate();
+    };
   }, []);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setTime((prev) => {
-  //       if (prev <= 1000) {
-  //         clearInterval(interval);
-  //         return 0;
-  //       }
-  //       return prev - 1;
-  //     });
-  //     return () => clearInterval(interval);
-  //   });
-  // }, []);
 
   const formatDate = (miliSecond) => {
     let totalSeconds = parseInt(Math.floor(miliSecond / 1000));
     let totalMinutes = parseInt(Math.floor(totalSeconds / 60));
     let totalHour = parseInt(Math.floor(totalMinutes / 60));
     let days = parseInt(Math.floor(totalHour / 24));
-    let hour = parseInt(Math.floor(totalHour % 60));
+    let hour = parseInt(Math.floor(totalHour % 24));
     let minutes = parseInt(Math.floor(totalMinutes % 60));
     let seconds = parseInt(Math.floor(totalSeconds % 60));
     return { days, hour, minutes, seconds };
