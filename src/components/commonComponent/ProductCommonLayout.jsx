@@ -6,10 +6,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/grid";
 import "swiper/css/navigation";
 
 // import required modules
-import { Navigation } from "swiper/modules";
+import { Navigation, Grid } from "swiper/modules";
 import Timer from "./Timer";
 import React, { useRef } from "react";
 import ProductSkeleton from "../Skeleton/ProductSkeleton";
@@ -26,6 +27,7 @@ const ProductCommonLayout = ({
   partialItemShow = 4,
   componentData = [],
   isLoading = false,
+  row = 1,
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -41,6 +43,10 @@ const ProductCommonLayout = ({
       <div className="mt-10! relative">
         <Swiper
           spaceBetween={40}
+          grid={{
+            rows: row,
+            fill: "row",
+          }}
           onBeforeInit={(swiper) => {
             if (typeof swiper.params.navigation !== "boolean") {
               swiper.params.navigation.prevEl = prevRef.current;
@@ -48,7 +54,7 @@ const ProductCommonLayout = ({
             }
           }}
           navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-          modules={[Navigation]}
+          modules={[Navigation, Grid]}
           slidesPerView={partialItemShow}
           className="mySwiper"
           // style={{ paddingRight: 0 }}

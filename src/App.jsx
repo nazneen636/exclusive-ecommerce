@@ -4,6 +4,7 @@ import Root from "./components/Root/Root";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Product from "./pages/Product";
+import ProductDetails from "./pages/ProductDetails";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/product" element={<Product />} />
+            <Route path="/productdetails/:id" element={<ProductDetails />} />
           </Route>
         </Routes>
       </BrowserRouter>

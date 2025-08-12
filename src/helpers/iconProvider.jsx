@@ -13,6 +13,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { IoIosArrowDown } from "react-icons/io";
 import {
   IoCartOutline,
   IoEyeOffOutline,
@@ -54,4 +55,5 @@ export const icons = {
   threeDot: <BsThreeDotsVertical />,
   user: <FaRegUser />,
   rArrow: <LiaAngleRightSolid />,
+  downArrow: <IoIosArrowDown />,
 };

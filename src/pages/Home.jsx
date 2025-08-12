@@ -6,6 +6,9 @@ import BannerCategory from "../components/homeComponents/BannerCategory/Index";
 import Category from "../components/homeComponents/Category/Index";
 import BestSelling from "../components/homeComponents/BestSelling/Index";
 import Experience from "../components/homeComponents/Experience/Index";
+import ExploreProducts from "../components/homeComponents/ExploreProducts/Index";
+import NewArrival from "../components/homeComponents/NewArrival/Index";
+import CustomerService from "../components/homeComponents/CustomerService/Index";
 
 const Home = () => {
   return (
@@ -29,6 +32,15 @@ const Home = () => {
       </div>
       <div className="mt-36!">
         <Experience timeOfOffer={2} />
+      </div>
+      <div className="mt-36!">
+        <ExploreProducts />
+      </div>
+      <div className="mt-36!">
+        <NewArrival />
+      </div>
+      <div className="mt-36!">
+        <CustomerService />
       </div>
     </div>
   );

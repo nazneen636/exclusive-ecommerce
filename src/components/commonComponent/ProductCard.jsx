@@ -3,11 +3,13 @@ import { icons } from "../../helpers/iconProvider";
 import { assets } from "../../helpers/assetProvider";
 import { FaStar } from "react-icons/fa";
 import Star from "./Star";
+import { Link } from "react-router";
 
 const ProductCard = ({ itemData }) => {
+  if (!itemData) return null;
   return (
-    <div className="">
-      <div className="w-[260px] ">
+    <Link to={`/productdetails/${itemData.id}`} className="w-full">
+      <div className="w-full">
         <div className="bg-white-f5f5f5 rounded-2 overflow-hidden pb-[55px]! px-4! pt-4! rounded relative group cursor-pointer">
           <div className="flex justify-between">
             {itemData.discountPercentage && (
@@ -59,12 +61,12 @@ const ProductCard = ({ itemData }) => {
           <div className="flex items-center gap-x-1 cursor-pointer">
             <Star rating={itemData && itemData?.rating} />
             <h3 className="text-text_black000000 opacity-50 font-medium text-lg font-poppins ml-2!">
-              ({itemData?.reviews?.length})
+              ({parseInt(itemData?.rating)})
             </h3>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
