@@ -8,6 +8,8 @@ import product_1 from "../assets/homeComponent/product_1.png";
 import QrCode from "../assets/Qrcode.png";
 import appStore from "../assets/appStore.png";
 import googlePlay from "../assets/googlePlay.png";
+// import login from "../assets/login.jpg";
+import login from "../assets/login.mp4";
 
 export const assets = {
   banner_1: banner_1,
@@ -20,4 +22,5 @@ export const assets = {
   QrCode: QrCode,
   appStore: appStore,
   googlePlay: googlePlay,
+  login: login,
 };
