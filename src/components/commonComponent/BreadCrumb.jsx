@@ -7,7 +7,7 @@ const BreadCrumb = () => {
   let BreadCrumbPath = "";
 
   return (
-    <div className="py-16! container flex">
+    <div className="py-8! container flex">
       <span>
         <Link to="/" className="text-text-black-000000 opacity-50">
           Home

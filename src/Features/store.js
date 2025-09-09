@@ -2,10 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 // Or from '@reduxjs/toolkit/query/react'
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { productApi } from "./api/product.api";
-
+import cartReducer from "./AllSlice/cartSlice";
+import wishListReducer from "./AllSlice/wishListSlice";
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
+    cart: cartReducer,
+    wishList: wishListReducer,
     [productApi.reducerPath]: productApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,

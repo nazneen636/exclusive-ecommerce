@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { icons } from "../../helpers/iconProvider";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { IoMdStarOutline } from "react-icons/io";
 import { ImCancelCircle } from "react-icons/im";
 import { LuShoppingBag, LuUser } from "react-icons/lu";
+import { useSelector } from "react-redux";
 
 const navItem = [
   {
@@ -32,6 +33,10 @@ const navItem = [
   },
 ];
 const Navbar = () => {
+  const cart = useSelector((state) => state.cart);
+  const wishList = useSelector((state) => state.wishList);
+  const totalCartItems = cart.length;
+  const totalwishListItems = wishList.length;
   const [account, setAccount] = useState(false);
   const userAccountRef = useRef(null);
   const userInfoRef = useRef(null);
@@ -77,12 +82,24 @@ const Navbar = () => {
               </span>
             </div>
             <div className="flex gap-4 items-center">
-              <span className="text-text_black7D8184 opacity-80 text-xl cursor-pointer">
+              <Link
+                to="/wishlist"
+                className="text-text_black7D8184 opacity-80 text-xl cursor-pointer relative"
+              >
                 {icons.heart}
-              </span>
-              <span className="text-text_black7D8184 opacity-80 text-2xl amount cursor-pointer">
-                {icons.cart}
-              </span>
+                <span className="bg-red-db4444 text-white w-6 h-6 text-sm flex! items-center justify-center rounded-full absolute -right-3 -top-3.5">
+                  {totalwishListItems}
+                </span>
+              </Link>
+              <Link to="/cart">
+                {" "}
+                <span className="text-text_black7D8184 opacity-80 text-2xl cursor-pointer -mb-2! relative">
+                  {icons.cart}
+                  <span className="bg-red-db4444 text-white w-6 h-6 text-sm flex! items-center justify-center rounded-full absolute -right-3 -top-3">
+                    {totalCartItems}
+                  </span>
+                </span>
+              </Link>
               <span
                 onClick={() => setAccount(!account)}
                 ref={userAccountRef}

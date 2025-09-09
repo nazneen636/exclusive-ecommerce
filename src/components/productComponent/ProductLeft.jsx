@@ -25,7 +25,7 @@ const ProductLeft = () => {
         <ul className="h-[50vh] overflow-y-scroll">
           {data?.map((item, index) => (
             <div key={index} className="flex items-center justify-between">
-              <li className="font-poppins transition-all text-md text-text-black-000000 hover:px-5! hover:text-red-db4444 font-normal py-3! cursor-pointer capitalize">
+              <li className="font-poppins transition-all text-md text-text-black-000000 hover:px-5! hover:text-red-db4444 font-normal py-2! cursor-pointer capitalize">
                 {item}
               </li>
             </div>

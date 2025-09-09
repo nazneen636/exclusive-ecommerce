@@ -1,14 +1,24 @@
 import React from "react";
 import { icons } from "../../helpers/iconProvider";
 import { assets } from "../../helpers/assetProvider";
-import { FaStar } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
 import Star from "./Star";
 import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../Features/AllSlice/cartSlice";
+import { toggleWishList } from "../../Features/AllSlice/wishListSlice";
 
 const ProductCard = ({ itemData }) => {
+  const dispatch = useDispatch();
+  const wishList = useSelector((state) => state.wishList);
+  const cart = useSelector((state) => state.cart);
+  const isWishListed = wishList.some((item) => item.id === itemData.id);
+  const isCart = cart.some((item) => item.id === itemData.id);
+  console.log(isWishListed);
+
   if (!itemData) return null;
   return (
-    <Link to={`/productdetails/${itemData.id}`} className="w-full">
+    <div className="w-full">
       <div className="w-full">
         <div className="bg-white-f5f5f5 rounded-2 overflow-hidden pb-[55px]! px-4! pt-4! rounded relative group cursor-pointer">
           <div className="flex justify-between">
@@ -19,12 +29,25 @@ const ProductCard = ({ itemData }) => {
             )}
             {/*  */}
             <div className="flex flex-col">
-              <div className="w-[35px] h-[35px] flex justify-center items-center rounded-full bg-white-ffffff cursor-pointer hover:bg-red-db4444 hover:text-white-ffffff text-xl">
-                <span>{icons.heart}</span>
+              <div
+                onClick={() => dispatch(toggleWishList(itemData))}
+                className="w-[35px] h-[35px] flex justify-center items-center rounded-full bg-white-ffffff cursor-pointer  text-xl"
+              >
+                <span>
+                  {isWishListed ? (
+                    <FaHeart className="text-red-500" />
+                  ) : (
+                    <FaRegHeart />
+                  )}
+                </span>
               </div>
-              <div className="w-[35px] h-[35px] flex justify-center items-center rounded-full bg-white-ffffff cursor-pointer hover:bg-red-db4444 hover:text-white-ffffff text-xl mt-2!">
-                <span> {icons.openEye}</span>
-              </div>
+              <Link to={`/productdetails/${itemData.id}`}>
+                {" "}
+                <div className="w-[35px] h-[35px] flex justify-center items-center rounded-full bg-white-ffffff cursor-pointer hover:bg-red-db4444 hover:text-white-ffffff text-xl mt-2!">
+                  {" "}
+                  {icons.openEye}
+                </div>
+              </Link>
             </div>
             {/*  */}
           </div>
@@ -37,8 +60,11 @@ const ProductCard = ({ itemData }) => {
               />
             </div>
           </div>
-          <div className="opacity-0 absolute left-0 bottom-0 font-poppins font-medium text-lg cursor-pointer flex justify-center items-center w-full h-12 bg-text-black-000000 text-white-ffffff group-hover:opacity-100 transition-all">
-            <h3>Add To Cart</h3>
+          <div
+            onClick={() => dispatch(addToCart(itemData))}
+            className="opacity-0 absolute left-0 bottom-0 font-poppins font-medium text-lg cursor-pointer flex justify-center items-center w-full h-12 bg-text-black-000000 text-white-ffffff group-hover:opacity-100 transition-all"
+          >
+            <h3>{isCart ? "Remove To Cart" : "Add To Cart"}</h3>
           </div>
         </div>
 
@@ -66,7 +92,7 @@ const ProductCard = ({ itemData }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
