@@ -41,6 +41,13 @@ const Navbar = () => {
   const userAccountRef = useRef(null);
   const userInfoRef = useRef(null);
 
+  // search
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    onSearch(value);
+  };
   return (
     <div className="pt-10! pb-6 border-b border-[#00000036]">
       <div className="container relative">
@@ -76,6 +83,8 @@ const Navbar = () => {
                 type="text"
                 className="py-2! bg-white-f5f5f5 rounded px-8! w-[300px] "
                 placeholder="What are you looking for?"
+                value={searchTerm}
+                onChange={handleChange}
               />
               <span className="absolute top-1/2 -translate-y-1/2 text-xl right-2">
                 {icons.search}

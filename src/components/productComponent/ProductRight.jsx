@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProductCard from "../commonComponent/ProductCard";
 import {
   useGetAllProductQuery,
+  useGetProductBySearchQuery,
   useGetSingleProductCategoryQuery,
 } from "../../Features/api/product.api";
 import { icons } from "../../helpers/iconProvider";
@@ -11,7 +12,8 @@ const ProductRight = ({ selectedCategory }) => {
   const { data, isLoading, error } = useGetAllProductQuery();
   const { data: categoryProduct } =
     useGetSingleProductCategoryQuery(selectedCategory);
-  console.log(categoryProduct);
+  const { data: searchProduct } = useGetProductBySearchQuery("phone");
+  console.log(searchProduct);
 
   const [page, setPage] = useState(1);
   const [pagePerShow, setPagePerShow] = useState(9);
@@ -64,21 +66,11 @@ const ProductRight = ({ selectedCategory }) => {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-7">
-        {selectedCategory
-          ? categoryProduct?.products
-              ?.slice(page * 9 - 9, page * pagePerShow)
-              .map((item) => (
-                <div key={item.id} className="">
-                  <ProductCard itemData={item} />
-                </div>
-              ))
-          : data?.products
-              ?.slice(page * 9 - 9, page * pagePerShow)
-              .map((item) => (
-                <div key={item.id} className="">
-                  <ProductCard itemData={item} />
-                </div>
-              ))}
+        {product?.slice(page * 9 - 9, page * pagePerShow).map((item) => (
+          <div key={item.id} className="">
+            <ProductCard itemData={item} />
+          </div>
+        ))}
       </div>
 
       {/* pagination */}
