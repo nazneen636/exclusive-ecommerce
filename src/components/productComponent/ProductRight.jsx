@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import ProductCard from "../commonComponent/ProductCard";
-import { useGetAllProductQuery } from "../../Features/api/product.api";
+import {
+  useGetAllProductQuery,
+  useGetSingleProductCategoryQuery,
+} from "../../Features/api/product.api";
 import { icons } from "../../helpers/iconProvider";
 import ProductSkeleton from "../Skeleton/ProductSkeleton";
 
-const ProductRight = () => {
+const ProductRight = ({ selectedCategory }) => {
   const { data, isLoading, error } = useGetAllProductQuery();
+  const { data: categoryProduct } =
+    useGetSingleProductCategoryQuery(selectedCategory);
+  console.log(categoryProduct);
 
   const [page, setPage] = useState(1);
   const [pagePerShow, setPagePerShow] = useState(9);
-  let totalPage = Math.ceil((data?.products?.length || 0) / pagePerShow);
+  const product = selectedCategory
+    ? categoryProduct?.products || []
+    : data?.products || [];
+  let totalPage = Math.ceil((product?.length || 0) / pagePerShow);
 
   const handlePerPageShow = (e) => {
     setPagePerShow(Number(e.target.value));
@@ -55,11 +64,21 @@ const ProductRight = () => {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-7">
-        {data?.products?.slice(page * 9 - 9, page * pagePerShow).map((item) => (
-          <div key={item.id} className="">
-            <ProductCard itemData={item} />
-          </div>
-        ))}
+        {selectedCategory
+          ? categoryProduct?.products
+              ?.slice(page * 9 - 9, page * pagePerShow)
+              .map((item) => (
+                <div key={item.id} className="">
+                  <ProductCard itemData={item} />
+                </div>
+              ))
+          : data?.products
+              ?.slice(page * 9 - 9, page * pagePerShow)
+              .map((item) => (
+                <div key={item.id} className="">
+                  <ProductCard itemData={item} />
+                </div>
+              ))}
       </div>
 
       {/* pagination */}

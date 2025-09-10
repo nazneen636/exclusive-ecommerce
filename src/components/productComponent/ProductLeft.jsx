@@ -1,9 +1,8 @@
 import React from "react";
 import { useGetProductByCategoryQuery } from "../../Features/api/product.api";
 
-const ProductLeft = () => {
+const ProductLeft = ({ setSelectedCategory }) => {
   const { data, isLoading, error } = useGetProductByCategoryQuery();
-  console.log(data);
 
   return (
     <div className="">
@@ -24,7 +23,11 @@ const ProductLeft = () => {
       ) : (
         <ul className="h-[50vh] overflow-y-scroll">
           {data?.map((item, index) => (
-            <div key={index} className="flex items-center justify-between">
+            <div
+              key={index}
+              onClick={() => setSelectedCategory(item)}
+              className="flex items-center justify-between"
+            >
               <li className="font-poppins transition-all text-md text-text-black-000000 hover:px-5! hover:text-red-db4444 font-normal py-2! cursor-pointer capitalize">
                 {item}
               </li>

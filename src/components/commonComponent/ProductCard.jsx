@@ -14,7 +14,6 @@ const ProductCard = ({ itemData }) => {
   const cart = useSelector((state) => state.cart);
   const isWishListed = wishList.some((item) => item.id === itemData.id);
   const isCart = cart.some((item) => item.id === itemData.id);
-  console.log(isWishListed);
 
   if (!itemData) return null;
   return (
