@@ -48,6 +48,16 @@ const categorybrowse = [
     name: "Smart Watch",
     img: icons.smartWatch,
   },
+  {
+    id: 10,
+    name: "Computer",
+    img: icons.computer,
+  },
+  {
+    id: 11,
+    name: "Gaming",
+    img: icons.gaming,
+  },
 ];
 const Category = () => {
   return (
