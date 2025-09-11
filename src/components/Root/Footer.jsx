@@ -1,4 +1,3 @@
-import React from "react";
 import { IoSendOutline } from "react-icons/io5";
 import { icons } from "../../helpers/iconProvider";
 import { assets } from "../../helpers/assetProvider";

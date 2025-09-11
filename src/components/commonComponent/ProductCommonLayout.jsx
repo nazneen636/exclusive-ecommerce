@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation, Grid } from "swiper/modules";
 import Timer from "./Timer";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import ProductSkeleton from "../Skeleton/ProductSkeleton";
 import Button from "./Button";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import BreadCrumb from "../components/commonComponent/BreadCrumb";
 import ImageGallery from "../components/productDetails/ImageGallery";
 import SpecificProductDetails from "../components/productDetails/SpecificProductDetails";

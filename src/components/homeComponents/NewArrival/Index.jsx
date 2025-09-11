@@ -1,5 +1,3 @@
-import React from "react";
-
 import { assets } from "../../../helpers/assetProvider";
 import Heading from "../../commonComponent/Heading";
 

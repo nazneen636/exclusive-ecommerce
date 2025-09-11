@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { assets } from "../helpers/assetProvider";
 import { icons } from "../helpers/iconProvider";
 import { Link } from "react-router";

@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
 import ProductCommonLayout from "../../commonComponent/ProductCommonLayout";
 import ProductCard from "../../commonComponent/ProductCard";
 import Button from "../../commonComponent/Button";
 import { useGetAllProductQuery } from "../../../Features/api/product.api";
-import ProductSkeleton from "../../Skeleton/ProductSkeleton";
 
 const FlashSale = () => {
   const { data, error, isLoading } = useGetAllProductQuery();

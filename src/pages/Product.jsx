@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import BreadCrumb from "../components/commonComponent/BreadCrumb";
 import ProductRight from "../components/productComponent/ProductRight";
 import ProductLeft from "../components/productComponent/ProductLeft";

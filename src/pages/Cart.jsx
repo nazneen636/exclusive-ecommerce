@@ -1,4 +1,3 @@
-import React from "react";
 import CartPage from "../components/cartcomponent/cart/Index";
 
 const Cart = () => {

@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCard from "../commonComponent/ProductCard";
 import { useSelector } from "react-redux";
 import BreadCrumb from "../commonComponent/BreadCrumb";

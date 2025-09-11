@@ -1,8 +1,7 @@
-import React from "react";
 import { useGetProductByCategoryQuery } from "../../Features/api/product.api";
 
 const ProductLeft = ({ setSelectedCategory }) => {
-  const { data, isLoading, error } = useGetProductByCategoryQuery();
+  const { data, isLoading } = useGetProductByCategoryQuery();
 
   return (
     <div className="">

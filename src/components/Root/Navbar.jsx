@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { icons } from "../../helpers/iconProvider";
 import { RiLogoutCircleLine } from "react-icons/ri";

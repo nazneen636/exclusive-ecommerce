@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCommonLayout from "../../commonComponent/ProductCommonLayout";
 import { icons } from "../../../helpers/iconProvider";
 import CategoryItem from "../../commonComponent/CategoryItem";

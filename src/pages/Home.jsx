@@ -1,5 +1,3 @@
-import React from "react";
-import Timer from "../components/commonComponent/Timer";
 import Banner from "../components/homeComponents/Banner/Index";
 import FlashSale from "../components/homeComponents/FlashSale/Index";
 import BannerCategory from "../components/homeComponents/BannerCategory/Index";

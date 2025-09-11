@@ -1,4 +1,3 @@
-import React from "react";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
 import BreadCrumb from "../../commonComponent/BreadCrumb";
 import { useDispatch, useSelector } from "react-redux";

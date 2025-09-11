@@ -1,4 +1,3 @@
-import React from "react";
 import { LuShieldCheck } from "react-icons/lu";
 import { TbTruckDelivery } from "react-icons/tb";
 import { TfiHeadphoneAlt } from "react-icons/tfi";

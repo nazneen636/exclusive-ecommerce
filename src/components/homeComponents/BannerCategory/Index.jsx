@@ -1,4 +1,3 @@
-import React from "react";
 import { category } from "../../../../Data/Data";
 import { icons } from "../../../helpers/iconProvider";
 

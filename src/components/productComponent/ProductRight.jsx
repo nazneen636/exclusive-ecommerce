@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ProductCard from "../commonComponent/ProductCard";
 import {
   useGetAllProductQuery,
@@ -9,7 +9,7 @@ import { icons } from "../../helpers/iconProvider";
 import ProductSkeleton from "../Skeleton/ProductSkeleton";
 
 const ProductRight = ({ selectedCategory }) => {
-  const { data, isLoading, error } = useGetAllProductQuery();
+  const { data, isLoading } = useGetAllProductQuery();
   const { data: categoryProduct } =
     useGetSingleProductCategoryQuery(selectedCategory);
   const { data: searchProduct } = useGetProductBySearchQuery("phone");

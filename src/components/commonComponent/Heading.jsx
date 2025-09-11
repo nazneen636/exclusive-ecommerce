@@ -1,5 +1,3 @@
-import React from "react";
-
 const Heading = ({ title, description = true }) => {
   return (
     <div className="flex flex-col items-start gap-y-6">

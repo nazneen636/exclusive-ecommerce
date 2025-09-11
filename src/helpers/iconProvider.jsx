@@ -1,6 +1,5 @@
 import { BsSmartwatch, BsThreeDotsVertical } from "react-icons/bs";
 import {
-  FaAngleRight,
   FaCarSide,
   FaFacebookF,
   FaInstagram,

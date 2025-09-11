@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCommonLayout from "../../commonComponent/ProductCommonLayout";
 import { useGetBestSellingProductQuery } from "../../../Features/api/product.api";
 import ProductCard from "../../commonComponent/ProductCard";

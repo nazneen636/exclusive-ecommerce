@@ -1,4 +1,3 @@
-import React from "react";
 import { icons } from "../../helpers/iconProvider";
 
 const Star = ({ rating = 0 }) => {

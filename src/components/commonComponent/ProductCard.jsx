@@ -1,7 +1,5 @@
-import React from "react";
 import { icons } from "../../helpers/iconProvider";
-import { assets } from "../../helpers/assetProvider";
-import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Star from "./Star";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";

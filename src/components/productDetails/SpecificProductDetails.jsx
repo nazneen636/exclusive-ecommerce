@@ -1,4 +1,3 @@
-import React from "react";
 import Star from "../commonComponent/Star";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -9,8 +8,8 @@ const SpecificProductDetails = ({ product }) => {
     description,
     rating,
     price,
-    stock,
-    warrantyInformation,
+    // stock,
+    // warrantyInformation,
     returnPolicy,
     discountPercentage,
     availabilityStatus,
