@@ -10,8 +10,10 @@ import ProductSkeleton from "../Skeleton/ProductSkeleton";
 
 const ProductRight = ({ selectedCategory }) => {
   const { data, isLoading } = useGetAllProductQuery();
-  const { data: categoryProduct } =
-    useGetSingleProductCategoryQuery(selectedCategory);
+  const { data: categoryProduct, isLoading: categoryProductLoading } =
+    useGetSingleProductCategoryQuery(selectedCategory, {
+      skip: !selectedCategory,
+    });
   const { data: searchProduct } = useGetProductBySearchQuery("phone");
   console.log(searchProduct);
 
@@ -32,7 +34,7 @@ const ProductRight = ({ selectedCategory }) => {
       setPage(index);
     }
   };
-  if (isLoading) {
+  if (isLoading || categoryProductLoading) {
     return (
       <div className="grid grid-cols-3 gap-7">
         {[...new Array(6)].map((_) => (

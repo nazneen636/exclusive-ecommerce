@@ -16,7 +16,7 @@ const FlashSale = () => {
           timeStamp={true}
           time={3}
           isArrowsTrue={true}
-          // viewButton={true}
+          viewButton={true}
           heading="Today's"
           description="Flash Sales"
           isLoading={isLoading}

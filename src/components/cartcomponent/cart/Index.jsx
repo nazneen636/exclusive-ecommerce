@@ -1,7 +1,11 @@
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
 import BreadCrumb from "../../commonComponent/BreadCrumb";
 import { useDispatch, useSelector } from "react-redux";
-import { decreaseQty, increaseQty } from "../../../Features/AllSlice/cartSlice";
+import {
+  decreaseQty,
+  increaseQty,
+  removeFromCart,
+} from "../../../Features/AllSlice/cartSlice";
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -67,7 +71,10 @@ const CartPage = () => {
                   </span>
                 </div>
                 {/* delete button */}
-                <button className="text-red-500 hover:text-red-700 text-xl">
+                <button
+                  onClick={() => dispatch(removeFromCart(item.id))}
+                  className="text-red-500 hover:text-red-700 text-xl cursor-pointer"
+                >
                   <FaTrash />
                 </button>
               </div>
